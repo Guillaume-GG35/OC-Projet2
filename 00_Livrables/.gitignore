@@ -1,0 +1,5 @@
+#Ignorer les fichiers csv
+output_scraper.csv
+
+#ignorer le dossier pycache
+__pycache__
