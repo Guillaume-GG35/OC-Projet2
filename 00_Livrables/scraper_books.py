@@ -30,7 +30,7 @@ for link in scraper_categories.category_links:
     i = 1
     next_link = soup.find("li", class_="next")
 
-    #xécution de la fonction extract_products_url() tant qu'il existe une page suivante
+    #Exécution de la fonction extract_products_url() tant qu'il existe une page suivante
     while next_link != None:
         i += 1
         soup = parser_url.link_to_parse(link[0:-10] + "page-" + str(i) + ".html")

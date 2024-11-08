@@ -1,5 +1,7 @@
 #Ignorer les fichiers csv
 output_scraper.csv
 
-#ignorer le dossier pycache
+#Ignorer les dossiers :
 __pycache__
+env
+Images

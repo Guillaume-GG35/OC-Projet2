@@ -15,10 +15,23 @@ category - la catégorie d'ouvrage
 review_rating - le nombre de commentaires
 image_url - l'adresse url de l'image associée au produit """
 
+import requests
 import parser_url
 import csv
 
 import scraper_books
+
+#Fontion permettant le téléchargement des images avec utilisation du hash pour dissocier les doublons
+def download_image(image_url, title, hash):
+    image = requests.get(image_url)
+    if image == "":
+        print("L'image associée à " + title + " n'a pas été trouvée.")
+    while title.find("/") != -1: #La méthode find() ne retourne pas "false" mais "-1" si le caractère n'est pas trouvé
+        title = title.replace("/", "-")
+    with open("Images/" + title + "-" + hash + ".jpg", 'wb') as fichier_image: #Argument "wb" : écriture de données binaires
+        fichier_image.write(image.content)
+
+print("Ecriture des données dans le fichier output_scraper.csv en cours... Merci de patienter.")
 
 #Import des données de la page dont l'url est importée par scraper_books.py
 for element in scraper_books.url_list:
@@ -73,14 +86,16 @@ for element in scraper_books.url_list:
     review_rating = int(table["Number of reviews"])
 
     image_tag = soup.find("img")
-    image_url = image_tag["src"] #on accède à l'attribut "src" de la même facon qu'on afficherait une valeur de dictionnaire
+    image_url = image_tag["src"] #On accède à l'attribut "src" de la même facon qu'on afficherait une valeur de dictionnaire
+    image_hash = image_url[27:-4] #Récupération du hash présent dans le nom de fichier original
+    
+    download_image("https://books.toscrape.com/" + image_url[6:], title, image_hash)
 
     #Ecriture des données dans le fichier output_scraper.csv
     data_csv = [url, upc, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url]
 
-    csv_file = open("output_scraper.csv", "a")
-    writer = csv.writer(csv_file, delimiter=",", quoting=csv.QUOTE_ALL)
-    writer.writerow(data_csv)
+    with open("output_scraper.csv", "a") as csv_file:
+        writer = csv.writer(csv_file, delimiter=",", quoting=csv.QUOTE_ALL)
+        writer.writerow(data_csv)
 
-csv_file.close()
 print("L'import des données est terminé !")
