@@ -24,8 +24,6 @@ import scraper_books
 #Fontion permettant le téléchargement des images avec utilisation du hash pour dissocier les doublons
 def download_image(image_url, title, hash):
     image = requests.get(image_url)
-    if image == "":
-        print("L'image associée à " + title + " n'a pas été trouvée.")
     while title.find("/") != -1: #La méthode find() ne retourne pas "false" mais "-1" si le caractère n'est pas trouvé
         title = title.replace("/", "-")
     with open("Images/" + title + "-" + hash + ".jpg", 'wb') as fichier_image: #Argument "wb" : écriture de données binaires
