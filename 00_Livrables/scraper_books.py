@@ -20,6 +20,8 @@ def extract_products_url():
 
 url_list = []
 
+print("Extraction de la liste des ouvrages...")
+
 #Boucle sur les éléments retournés par scraper_categories.py
 for link in scraper_categories.category_links:
     soup = parser_url.link_to_parse(link)
