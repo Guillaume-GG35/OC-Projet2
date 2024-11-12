@@ -49,8 +49,8 @@ if os.path.exists(images_dir) :
 else :
     os.mkdir('Images')
     print("Le dossier Images a été créé.")
-
-print("Ecriture des données dans le fichier output_scraper.csv et téléchargement des images en cours...")
+    print("Ecriture des données dans le fichier output_scraper.csv et téléchargement des images en cours...")
+    
 print("0 %")
 
 i = 1
