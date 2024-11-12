@@ -32,7 +32,7 @@ L'installateur **pip** doit également être disponible sur votre machine pour i
 <details>
 <summary>Etape 1 - Installer git</summary><br>
 
-Pour pouvoir exécuter ce programme, vérifiez que git est bien installé sur votre poste.<br>
+Pour télécharger ce programme, vérifiez que git est bien installé sur votre poste.<br>
 Vous pouvez l'installer en suivant les instructions fournies sur le site [git-scm.com](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git)
 
 </details>
