@@ -64,14 +64,7 @@ Exécutez la commande ``pip install requests bs4``
 </details>
 
 <details>
-<summary>Etape 5 - Créer un dossier Images</summary><br>
-
-Dans le dossier **00_Livrables**, créer un nouveau dossier nommé **Images**
-
-</details>
-
-<details>
-<summary>Etape 6 - Exécuter le programme</summary><br>
+<summary>Etape 5 - Exécuter le programme</summary><br>
 
 Exécutez la commande ``python main.py``
 
@@ -81,7 +74,7 @@ Exécutez la commande ``python main.py``
 
 Les données seront extraites dans un fichier output_scraper.csv qui sera automatiquement créé par le programme dans le dossier **00_Livrables**.
 
-Les images seront téléchargées et enregistrées dans le dossier **00_Livrables/Images** que vous avez créé précédemment.
+Les images seront téléchargées et enregistrées dans le dossier **00_Livrables/Images**.
 
 > [!NOTE]
 > Le programme peut prendre plusieurs minutes pour réaliser l'extraction des données.
