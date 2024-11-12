@@ -23,7 +23,7 @@ if user_auth_rm_csv == "n" :
 
 #Création du fichier output_scraper.csv et écriture de la ligne d'en-tête
 with open("output_scraper.csv", "w") as csv_file:
-    writer = csv.writer(csv_file, delimiter=",", quoting=csv.QUOTE_ALL)
+    writer = csv.writer(csv_file, delimiter=";", quoting=csv.QUOTE_ALL)
     header_csv = ["product_page_url", "universal_product_code", "title", "price_including_tax", "price_excluding_tax", "number_available", "product_description", "category", "review_rating", "image_url"]
     writer.writerow(header_csv)
     
